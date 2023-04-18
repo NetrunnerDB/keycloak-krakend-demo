@@ -1,0 +1,31 @@
+{
+  "version": 3,
+  "timeout": "3s",
+  "endpoints":[
+    {
+      "endpoint": "/keycloak-protected",
+      "backend": [
+          {
+            "host":["http://netrunnerdb-api-server_nrdbapi:3000"],
+            "url_pattern": "/api/public/v3/factions"
+          }
+      ]
+    },
+    {
+      "endpoint": "/keycloak-protected",
+      "extra_config": {
+          "auth/validator": {
+              "alg": "RS256",
+              "jwk_url": "http://keycloak:8080/realms/nullsignal/protocol/openid-connect/certs",
+              "disable_jwk_security": true
+          }
+      },
+      "backend": [
+          {
+            "host":["http://krakend:8080"],
+            "url_pattern": "/__health"
+          }
+      ]
+    }
+  ]
+}

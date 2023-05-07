@@ -9,7 +9,7 @@ services:
     ports:
       - 10000:8080
     networks:
-      - backend
+      - null_signal
 
   postgres:
     image: postgres:13.2
@@ -53,13 +53,14 @@ services:
     restart: on-failure
     networks:
       - backend
+      - null_signal
     depends_on:
       postgres:
         condition: service_started
 
 networks:
-  netrunnerdb-api-server_nrdbapi:
-    driver: bridge
+  null_signal:
+    external: true
   backend:
     name: backend
     driver: bridge

@@ -222,6 +222,60 @@
       ]
     },
     {
+      "endpoint": "/api/v3/private/decks/{uuid}",
+      "method": "PATCH",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "jwk_url": "http://keycloak:8080/realms/nullsignal/protocol/openid-connect/certs",
+          "disable_jwk_security": true
+        }
+      },
+      "backend": [
+        {
+          "host": [
+            "http://nrdb_api_server:3000"
+          ],
+          "encoding": "no-op",
+	  "method": "PATCH",
+          "url_pattern": "/api/v3/private/decks/{uuid}"
+        }
+      ],
+      "input_headers": [
+        "Accept",
+        "Authorization",
+        "Content-Type"
+      ]
+    },
+    {
+      "endpoint": "/api/v3/private/decks/{uuid}",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "jwk_url": "http://keycloak:8080/realms/nullsignal/protocol/openid-connect/certs",
+          "disable_jwk_security": true
+        }
+      },
+      "backend": [
+        {
+          "host": [
+            "http://nrdb_api_server:3000"
+          ],
+          "encoding": "no-op",
+	  "method": "GET",
+          "url_pattern": "/api/v3/private/decks/{uuid}"
+        }
+      ],
+      "input_headers": [
+        "Accept",
+        "Authorization",
+        "Content-Type"
+      ]
+    },
+    {
       "endpoint": "/api/v3/private/user",
       "extra_config": {
         "auth/validator": {

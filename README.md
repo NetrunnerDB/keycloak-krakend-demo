@@ -1,3 +1,5 @@
+# Note: This was abandoned in favor of alternatives given krakend limitations.
+
 Keycloak (auth) + Krakend (API gateway) demo for Null Signal
 
 Keycloak (https://keycloak.org) lets us handle authentication and authorization, including making and managing oauth clients.
